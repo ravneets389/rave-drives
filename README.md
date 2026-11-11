@@ -1,8 +1,9 @@
-# i20 Telemetry
+# Rave Drives
 
-"Strava for your car" for a 2024 Hyundai i20 1.2 IVT. A web app that runs on an
-Android phone (Galaxy S20 FE) in Chrome, talks to a **Vgate iCar Pro 2S** (BLE)
-OBD-II adapter over Web Bluetooth, and logs every drive locally.
+"Strava for your car." A web app that logs every drive from your phone's GPS and,
+optionally, a Bluetooth OBD-II adapter (built and tested around a 2024 Hyundai i20
+1.2 IVT with a **Vgate iCar Pro 2S**). Works on any phone in GPS-only mode; the OBD
+connection needs Chrome on Android (Web Bluetooth).
 
 ## What it does
 - **Live dashboard:** speed, RPM, throttle, load, coolant, volts, live and trip km/l
@@ -24,7 +25,7 @@ npm run build
 Web Bluetooth and GPS need HTTPS, so the phone loads the app from Cloudflare Pages.
 ```
 npx wrangler login                                                        # once
-npx wrangler pages project create i20-telemetry --production-branch main  # once
+npx wrangler pages project create rave-drives --production-branch main    # once
 npm run deploy
 ```
 Only the app code is hosted. Drive data never leaves the phone.

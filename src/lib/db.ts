@@ -3,7 +3,7 @@ import { DEFAULT_SETTINGS, type Drive, type Settings } from './types';
 
 let dbp: Promise<IDBPDatabase> | null = null;
 function db() {
-  dbp ??= openDB('i20-telemetry', 1, {
+  dbp ??= openDB('rave-drives', 1, {
     upgrade(d) {
       const s = d.createObjectStore('drives', { keyPath: 'id' });
       s.createIndex('startedAt', 'startedAt');

@@ -12,7 +12,7 @@ export function SettingsPage({ settings, onChange, drives, onImported }: { setti
   const exportAll = () => {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([JSON.stringify(drives)], { type: 'application/json' }));
-    a.download = `i20-drives-${new Date().toISOString().slice(0, 10)}.json`; a.click();
+    a.download = `rave-drives-${new Date().toISOString().slice(0, 10)}.json`; a.click();
   };
   const importAll = async (f: File) => {
     const data = JSON.parse(await f.text());

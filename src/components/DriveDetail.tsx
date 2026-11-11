@@ -30,7 +30,7 @@ export function DriveDetail({ drive, onBack, onChanged, onRace }: { drive: Drive
   const exportJson = () => {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(new Blob([JSON.stringify(drive)], { type: 'application/json' }));
-    a.download = `i20-drive-${drive.id}.json`; a.click();
+    a.download = `rave-drive-${drive.id}.json`; a.click();
   };
   const sim = drive.source.gps === 'sim' || drive.source.obd === 'sim';
 

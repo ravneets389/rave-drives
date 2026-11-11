@@ -12,7 +12,7 @@ export async function renderRecap(d: Drive): Promise<Blob> {
   g.fillStyle = bg; g.fillRect(0, 0, W, H);
 
   const font = (px: number, w = 600, mono = false) => `${w} ${px}px ${mono ? 'ui-monospace, Menlo, monospace' : 'system-ui, -apple-system, Roboto, sans-serif'}`;
-  g.fillStyle = '#ff5a1f'; g.font = font(34, 800); g.fillText('DRIVE RECAP', 80, 130);
+  g.fillStyle = '#ff5a1f'; g.font = font(34, 800); g.fillText('RAVE DRIVES · RECAP', 80, 130);
   g.fillStyle = '#a9b0bb'; g.font = font(40, 500); g.fillText(`${fmtDate(d.startedAt)} · ${fmtTime(d.startedAt)}`, 80, 190);
   if (d.name) { g.fillStyle = '#f2f4f7'; g.font = font(56, 700); g.fillText(d.name, 80, 270); }
 
@@ -70,7 +70,7 @@ function roundRect(g: CanvasRenderingContext2D, x: number, y: number, w: number,
 
 export async function shareRecap(d: Drive) {
   const blob = await renderRecap(d);
-  const file = new File([blob], `i20-drive-${new Date(d.startedAt).toISOString().slice(0, 10)}.png`, { type: 'image/png' });
+  const file = new File([blob], `rave-drive-${new Date(d.startedAt).toISOString().slice(0, 10)}.png`, { type: 'image/png' });
   if (navigator.canShare?.({ files: [file] })) {
     try { await navigator.share({ files: [file] }); return; } catch (e) { if ((e as Error).name === 'AbortError') return; }
   }
